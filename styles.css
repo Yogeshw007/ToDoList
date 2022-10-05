@@ -1,143 +1,223 @@
- :root {
-            --custom-grey-1: #e9ecec;
-            --custom-grey-2: #d2ddea;
-            --custom-grey-3: #c4c6ce;
-            --custom-grey-4: #8394ac;
-        }
+:root{
+    --custom-grey-1: #e9ecec;
+    --custom-grey-2: #d2ddea;
+    --custom-grey-3: #c4c6ce;
+    --custom-grey-4: #8394ac;
+    --custom-green:#2AF598;
+    --gradient-color1: #FA8BFF;
+    --gradient-color2: #2BD2FF;
+    --gradient-color3: #2BFF88;
+}
 
-        /* Reusable styles start */
-        .position-relative {
-            position: relative;
-        }
+/* Reusable styles start */
+.position-relative {
+    position: relative;
+}
 
-        .position-absolute {
-            position: absolute;
-        }
+.position-absolute {
+    position: absolute;
+}
 
-        .br-10 {
-            border-radius: 10px;
-        }
+.br-10 {
+    border-radius: 10px;
+}
 
-        .flex-center {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-        .flex-center-x-between {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+.flex-center-x-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-        .btn-style {
-            background: none;
-            border: none;
-            color: var(--custom-grey-4);
-            font-size: 0.9rem;
-        }
+.btn-style {
+    background: none;
+    border: none;
+    color: var(--custom-grey-4);
+    font-size: 0.9rem;
+    cursor: pointer;
+}
 
-        /* Reusables styles end */
+.btn-style:hover{
+    color: #051937;
+}
 
-        * {
-            margin: 0;
-            padding: 0;
-        }
+.strike-through{
+    text-decoration: line-through;
+}
 
-        body {
-            width: 100vw;
-            height: 70vh;
-            background-color: var(--custom-grey-3);
-            font-family: 'Arial Narrow', Arial, sans-serif;
-        }
+.completed{
+    color: var(--custom-green);
+}
 
-        #todo-list-container {
-            background: white;
-            width: 30vw;
-            min-width: 350px;
-            padding: 1rem 2rem;
-        }
+/* Reusables styles end */
 
-        #add-todo-list-container {
-            background-color: var(--custom-grey-2);
-            display: flex;
-            align-items: center;
-        }
+* {
+    margin: 0;
+    padding: 0;
+    user-select: none;
+}
 
-        .fa-clipboard-list {
-            margin: 0 15px;
-        }
+body {  
+    /* background-image: linear-gradient(90deg, var(--gradient-color1), var(--gradient-color2), var(--gradient-color3)); */
+    background-image: linear-gradient(90deg, var(--gradient-color1), var(--gradient-color2));
+    font-family: 'Arial Narrow', Arial, sans-serif;
+}
 
-        #todo-textbox {
-            background-color: var(--custom-grey-1);
-            font-size: 1.5rem;
-            padding: 1rem 0rem 1rem 2.5rem;
-            width: 100%;
-            border: none;
-            outline: none;
-        }
+#todo-list-container {
+    background: white;
+    width: 40vw;
+    min-width: 350px;
+    max-width: 500px;
+    padding: 1rem 2rem;
+    margin-top: 100px;
+    align-self: flex-start;
+}
 
-        .fa-plus {
-            right: 20px;
-            display: flex;
-            align-items: center;
-            border: 3px solid black;
-            padding: 4px;
-            border-radius: 50%;
-        }
+#add-todo-list-container {
+    background-color: var(--custom-grey-2);
+    display: flex;
+    align-items: center;
+}
 
-        #todo-textbox::placeholder {
-            color: var(--custom-grey-2);
-        }
+.fa-clipboard-list {
+    margin: 0 15px;
+}
 
-        #todo-button-handlers {
-            height: 40px;
-        }
+#add-item-icon{
+    visibility: hidden;
+}
 
-        .fa-check-double {
-            margin: 0 10px;
-        }
+#add-todo-list-container:hover #add-item-icon{
+    visibility: visible;
+}
 
-        #tasks {
-            margin: 1.3rem 0px;
-        }
+#todo-textbox {
+    background-color: var(--custom-grey-1);
+    font-size: 1.5rem;
+    padding: 1rem 0rem 1rem 3rem;
+    width: 100%;
+    border: none;
+    outline: none;
+}
 
-        .task {
-            list-style: none;
-            margin-bottom: 10px;
-        }
+.fa-plus {
+    right: 20px;
+    display: flex;
+    align-items: center;
+    border: 3px solid black;
+    padding: 4px;
+    border-radius: 50%;
+}
 
-        .task-status {
-            margin: 0 10px;
-        }
+#todo-textbox::placeholder {
+    color: var(--custom-grey-2);
+}
 
-        .task-status-checkbox {
-            left: 0;
-            width: 20px;
-            height: 20px;
-            visibility: hidden;
-        }
+#todo-button-handlers {
+    height: 40px;
+}
 
-        .task-title {
-            font-size: 1.6rem;
-        }
+.fa-check-double {
+    margin: 0 10px;
+}
 
-        #tasks-filter>button {
-            margin: 0px 4px;
-        }
+#tasks {
+    margin: 1.3rem 0px;
+}
 
-        footer {
-            margin-top: 10px;
-        }
+.task {
+    list-style: none;
+    margin-bottom: 10px;
+}
 
-        @media screen and (max-width:768px) {
-            body {
-                font-size: 13px;
-            }
+.task-status {
+    margin: 0 10px;
+}
 
-            #todo-textbox,
-            .task-title {
-                font-size: 1.3rem;
-            }
+.task-status-checkbox {
+    left: 0;
+    width: 20px;
+    height: 20px;
+    visibility: hidden;
+}
 
-        }
+.task:hover .fa-circle-xmark{
+    visibility: visible;
+}
+
+.task-title {
+    font-size: 1.6rem;
+}
+
+.fa-circle-xmark{
+    visibility: hidden;
+}
+
+.fa-circle-xmark.visible{
+    visibility: visible;
+}
+
+#tasks-filter>button {
+    margin: 0px 4px;
+}
+
+footer {
+    margin-top: 10px;
+}
+
+.fa-circle,
+.fa-circle-check,
+.fa-circle-xmark,
+.fa-plus{
+    cursor: pointer;
+}
+
+#star-container{
+    align-self: flex-start;
+    flex-wrap: wrap;
+    width: inherit;
+    visibility: hidden;
+}
+
+#star-container.start{
+    visibility: visible;
+    animation: blinkStars 1s ease-out infinite forwards;
+}
+
+@keyframes blinkStars {
+    0%{
+        opacity: 0.3;
+    }
+
+    25%{
+        opacity: 0.5;
+    }
+
+    50%{
+        opacity: 0.7;
+    }
+
+    75%{
+        opacity: 0.9;
+    }
+
+    100%{
+        opacity: 1;
+    }
+}
+
+@media screen and (max-width:768px) {
+    body {
+        font-size: 13px;
+    }
+
+    #todo-textbox,
+    .task-title {
+        font-size: 1.3rem;
+    }
+}
