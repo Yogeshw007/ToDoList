@@ -5,11 +5,69 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To do list Application</title>
+    <title>To Do List Application</title>
+    <link rel="stylesheet" href="./styles.css" type="text/css">
+    <script defer src="https://kit.fontawesome.com/884384c329.js" crossorigin="anonymous"></script>
+
 </head>
 
-<body>
+<body class="flex-center">
+    <div id="todo-list-container" class="br-10">
+        <header>
+            <div id="add-todo-list-container" class="position-relative br-10">
+                <i class="fa-solid fa-clipboard-list position-absolute"></i>
+                <input id="todo-textbox" class="br-10" type="text" name="item name" placeholder="Type your todo list">
+                <i class="fa-solid fa-plus position-absolute"></i>
+            </div>
+            <div id="todo-button-handlers" class="flex-center-x-between">
+                <button id="complete-all-task" class="btn-style">
+                    <i class="fa-solid fa-check-double fa-lg"></i>
+                    Complete all tasks
+                </button>
+                <button id="clear-completed" class="btn-style">Clear completed</button>
+            </div>
+        </header>
+        <hr>
+        <ul id="tasks">
+            <li class="task flex-center-x-between">
+                <div class="task-detail flex-center">
+                    <div class="task-status flex-center">
+                        <i class="fa-regular fa-circle fa-xl position-relative flex-center">
+                            <input type="checkbox" class="task-status-checkbox position-absolute" name="task-status">
+                        </i>
+                        <!-- <i class="fa-regular fa-circle-check "></i> -->
 
+                    </div>
+
+                    <p class="task-title">List item 1</p>
+                </div>
+                <i class="fa-regular fa-circle-xmark fa-xl"></i>
+            </li>
+            <li class="task flex-center-x-between">
+                <div class="task-detail flex-center">
+                    <div class="task-status flex-center">
+                        <i class="fa-regular fa-circle-check fa-xl position-relative flex-center">
+                            <input type="checkbox" class="task-status-checkbox position-absolute" name="task-status">
+                        </i>
+
+                    </div>
+
+                    <p class="task-title">List item 2</p>
+                </div>
+                <i class="fa-regular fa-circle-xmark fa-xl"></i>
+            </li>
+        </ul>
+
+        <hr>
+        <footer class="flex-center-x-between">
+            <span id="task-display"><b id="task-count">3</b> tasks left</span>
+            <div id="tasks-filter" class="flex-center">
+                <button id="all-tasks" class="btn-style">All</button>
+                <button id="uncomplete" class="btn-style">Uncomplete</button>
+                <button id="completed" class="btn-style">Completed</button>
+            </div>
+        </footer>
+    </div>
 </body>
 
 </html>
