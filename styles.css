@@ -1,3 +1,4 @@
+/* Custom colors */
 :root{
     --custom-grey-1: #e9ecec;
     --custom-grey-2: #d2ddea;
@@ -62,8 +63,7 @@
     user-select: none;
 }
 
-body {  
-    /* background-image: linear-gradient(90deg, var(--gradient-color1), var(--gradient-color2), var(--gradient-color3)); */
+body {
     background-image: linear-gradient(90deg, var(--gradient-color1), var(--gradient-color2));
     font-family: 'Arial Narrow', Arial, sans-serif;
 }
