@@ -200,7 +200,6 @@ function shakeTitle() {
     let taskTitles = document.getElementsByClassName('task-title');
 
     for (let taskTitle of taskTitles) {
-        console.log(taskTitle)
         if (taskTitle.className.includes('completed')) {
             taskTitle.classList.toggle('animation-start');
             setTimeout(() => {
