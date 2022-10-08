@@ -101,7 +101,7 @@ body {
 #todo-textbox {
     background-image: linear-gradient(to left, var(--gradient-color4), var(--gradient-color5));
     font-size: 1.5rem;
-    padding: 1rem 0rem 1rem 3rem;
+    padding: 1rem 3.2rem 1rem 3rem;
     width: 100%;
     border: none;
     outline: none;
