@@ -191,42 +191,6 @@ footer {
     cursor: pointer;
 }
 
-#star-container{
-    align-self: flex-start;
-    flex-wrap: wrap;
-    width: inherit;
-    visibility: hidden;
-}
-
-#star-container.start{
-    visibility: visible;
-    animation: blinkStars 1s ease-out infinite forwards;
-}
-
-/* Keyframes for blinking stars in entire page when all the tasks are completed */
-@keyframes blinkStars {
-    0%{
-        opacity: 0.3;
-    }
-
-    25%{
-        opacity: 0.5;
-    }
-
-    50%{
-        opacity: 0.7;
-    }
-
-    75%{
-        opacity: 0.9;
-    }
-
-    100%{
-        opacity: 1;
-    }
-}
-
-
 /* This keyframes to appear when an item is completed */
 @keyframes taskTitleShake{
     0%{

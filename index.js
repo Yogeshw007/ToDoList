@@ -9,7 +9,6 @@ const addItemButton = document.getElementById('add-item-icon');
 const listFilters = document.querySelectorAll('#tasks-filter > *');
 const completeAllTaskBtn = document.getElementById('complete-all-task');
 const clearCompletedBtn = document.getElementById('clear-completed');
-const starsContainer = document.getElementById('star-container');
 
 let currentFilter = 'all';
 
@@ -153,14 +152,6 @@ function renderToDoList(filterName) {
     taskCount.textContent = itemCount;
 
     shakeTitle();
-
-    //Show the congrats star when all the tasks available are completed
-    if (uncompletedItem && todoLists.length > 0) {
-        if (!(filterName !== undefined && filterName === 'all')) {
-            return;
-        }
-        showStars();
-    }
 }
 
 //Add a todo item to the list
@@ -184,15 +175,6 @@ function addToDoItemToList(e) {
     todoTextInput.value = '';
 
     renderToDoList(currentFilter);
-}
-
-//Function to trigger the stars to appear on the web page for 5 seconds
-function showStars() {
-    starsContainer.classList.add('start');
-
-    setTimeout(() => {
-        starsContainer.classList.remove('start');
-    }, 5000);
 }
 
 //Function to add dynamic class to shake the todo title
