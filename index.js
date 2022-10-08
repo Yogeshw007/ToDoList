@@ -11,6 +11,8 @@ const completeAllTaskBtn = document.getElementById('complete-all-task');
 const clearCompletedBtn = document.getElementById('clear-completed');
 const starsContainer = document.getElementById('star-container');
 
+let currentFilter = 'all';
+
 //Focus the input field to start entering the todo item at initial load itself.
 todoTextInput.focus();
 
@@ -32,7 +34,7 @@ for (let filter of listFilters) {
 }
 
 // Defaulting the filter to show all the todo items
-filterListByName('all');
+filterListByName(currentFilter);
 
 //Remove an item from the todolist when click on the cross icon in list todo item
 function removeTaskItem(e) {
@@ -41,7 +43,7 @@ function removeTaskItem(e) {
             return item.id !== Number(e.target.getAttribute('data-id'));
         });
     }
-    renderToDoList();
+    renderToDoList(currentFilter);
 }
 
 //Remove the completed task from the todo list
@@ -49,7 +51,7 @@ function removeCompletedTaskItem() {
     todoLists = todoLists.filter((item) => {
         return !item.completed;
     });
-    renderToDoList();
+    renderToDoList(currentFilter);
 }
 
 //Function to filter the todo item with the completion status
@@ -64,7 +66,7 @@ function filterListByName(filterName) {
     }
 }
 
-// Function to filter the todo list based on the filter clicked
+//Function to filter the todo list based on the filter clicked
 function filterList(e) {
     for (let filter of listFilters) {
         filter.style.fontWeight = 'normal';
@@ -72,6 +74,7 @@ function filterList(e) {
     }
     e.target.style.fontWeight = 'bold';
     e.target.style.color = 'black';
+    currentFilter = e.target.getAttribute('data-name');
     renderToDoList(e.target.getAttribute('data-name'));
 }
 
@@ -82,7 +85,8 @@ function completeTask(e) {
             item.completed = !item.completed;
         }
     }
-    renderToDoList();
+
+    renderToDoList(currentFilter);
 }
 
 //Function to mark all the todo item as completed
@@ -90,7 +94,7 @@ function completeAllTask() {
     for (let item of todoLists) {
         item.completed = true;
     }
-    renderToDoList();
+    renderToDoList(currentFilter);
 }
 
 //Render the list of todo item on the web page
@@ -148,8 +152,13 @@ function renderToDoList(filterName) {
     //Update the task count in footer
     taskCount.textContent = itemCount;
 
+    shakeTitle();
+
     //Show the congrats star when all the tasks available are completed
     if (uncompletedItem && todoLists.length > 0) {
+        if (!(filterName !== undefined && filterName === 'all')) {
+            return;
+        }
         showStars();
     }
 }
@@ -174,7 +183,7 @@ function addToDoItemToList(e) {
     todoLists.push(todoObj);
     todoTextInput.value = '';
 
-    renderToDoList();
+    renderToDoList(currentFilter);
 }
 
 //Function to trigger the stars to appear on the web page for 5 seconds
@@ -184,4 +193,19 @@ function showStars() {
     setTimeout(() => {
         starsContainer.classList.remove('start');
     }, 5000);
+}
+
+//Function to add dynamic class to shake the todo title
+function shakeTitle() {
+    let taskTitles = document.getElementsByClassName('task-title');
+
+    for (let taskTitle of taskTitles) {
+        console.log(taskTitle)
+        if (taskTitle.className.includes('completed')) {
+            taskTitle.classList.toggle('animation-start');
+            setTimeout(() => {
+                taskTitle.classList.toggle('animation-start');
+            }, 1000);
+        }
+    }
 }
