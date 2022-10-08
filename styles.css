@@ -88,7 +88,6 @@ body {
 
 .fa-clipboard-list {
     margin: 0 15px;
-    /* color: #ec008c; */
 }
 
 #add-item-icon{
@@ -204,6 +203,7 @@ footer {
     animation: blinkStars 1s ease-out infinite forwards;
 }
 
+/* Keyframes for blinking stars in entire page when all the tasks are completed */
 @keyframes blinkStars {
     0%{
         opacity: 0.3;
@@ -226,6 +226,8 @@ footer {
     }
 }
 
+
+/* This keyframes to appear when an item is completed */
 @keyframes taskTitleShake{
     0%{
         transform: translateX(0%);
@@ -236,9 +238,14 @@ footer {
     }
 }
 
-@media screen and (max-width:768px) {
+/* Style for mobile devices */
+@media screen and (max-width:481px) {
     body {
         font-size: 13px;
+    }
+
+    #todo-list-container {
+        min-width: 80vw;
     }
 
     #todo-textbox,

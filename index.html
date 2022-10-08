@@ -6,34 +6,46 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todo List</title>
+    <!-- External stylesheet -->
     <link rel="stylesheet" href="./styles.css" type="text/css">
+    <!-- Font awesome script file for icons -->
     <script defer src="https://kit.fontawesome.com/884384c329.js" crossorigin="anonymous"></script>
+    <!-- Script file for the todo list functionality -->
     <script defer src="./index.js" type="text/javascript"></script>
 </head>
 
+<!-- Body -->
+
 <body class="flex-center position-relative">
+    <!-- To do list container -->
     <div id="todo-list-container" class="br-10">
-        <header>
+        <!-- Header contains the text box for todo item to enter and buttons for specific functions -->
+        <header id="todo-list-header">
             <div id="add-todo-list-container" class="position-relative br-10">
                 <i class="fa-solid fa-clipboard-list fa-xl position-absolute"></i>
                 <input id="todo-textbox" class="br-10" type="text" name="item name" placeholder="Type your todo list">
                 <i class="fa-solid fa-plus position-absolute" id="add-item-icon"></i>
             </div>
             <div id="todo-button-handlers" class="flex-center-x-between">
+                <!-- Button to complete all the list items -->
                 <button id="complete-all-task" class="btn-style">
                     <i class="fa-solid fa-check-double fa-lg"></i>
                     Complete all tasks
                 </button>
+                <!-- Button to clear the completed items -->
                 <button id="clear-completed" class="btn-style">Clear completed</button>
             </div>
         </header>
         <hr>
+        <!-- Tasks container contains the invididual task item added upon user adding the item -->
         <ul id="tasks">
         </ul>
-
         <hr>
+        <!-- Footer contains tasks count & filter buttons -->
         <footer class="flex-center-x-between">
-            <span id="task-display"><b id="task-count">0</b> tasks left</span>
+            <!-- Task count  -->
+            <p id="task-display"><b id="task-count">0</b> tasks left</p>
+            <!-- Filter buttons for todo items -->
             <div id="tasks-filter" class="flex-center">
                 <button id="all-tasks" class="btn-style" data-name="all">All</button>
                 <button id="uncomplete" class="btn-style" data-name="uncomplete">Uncomplete</button>
@@ -41,6 +53,7 @@
             </div>
         </footer>
     </div>
+    <!-- Stars that displays when all the todo items are completed -->
     <div id="star-container" class="position-absolute flex-center">
         <svg width="320" height="320">
             <path d="
